@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('driver_id')->constrained()->cascadeOnDelete();
             $table->string('code')->unique();
-            $table->text('address');
+            $table->text('delivery_address');
             $table->enum('status', ['pending', 'delivered'])->default('pending');
             $table->timestamp('delivered_at')->nullable();
             $table->timestamps();
