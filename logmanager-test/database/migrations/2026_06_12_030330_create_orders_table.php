@@ -15,6 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('driver_id')->constrained()->cascadeOnDelete();
+            $table->string('code')->unique();
+            $table->text('address');
+            $table->enum('status', ['pending', 'delivered'])->default('pending');
+            $table->timestamp('delivered_at')->nullable();
             $table->timestamps();
         });
     }
