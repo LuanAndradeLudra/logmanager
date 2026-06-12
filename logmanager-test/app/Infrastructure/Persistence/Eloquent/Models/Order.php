@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Persistence\Eloquent\Models;
 
+use App\Domain\Order\OrderStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -11,8 +12,8 @@ class Order extends Model
 {
     use HasFactory;
 
-    public const STATUS_PENDING = 'pending';
-    public const STATUS_DELIVERED = 'delivered';
+    public const STATUS_PENDING = OrderStatus::PENDING;
+    public const STATUS_DELIVERED = OrderStatus::DELIVERED;
 
     protected $fillable = [
         'driver_id',
